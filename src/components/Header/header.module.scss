@@ -1,0 +1,115 @@
+@use '../../styles/theme';
+
+$headerSize: 150px;
+
+.header {
+  background-color: theme.$secondary-dark;
+  height: $headerSize;
+  position: sticky;
+  z-index: 9999;
+  top: 0;
+  display: flex;
+  align-items: center;
+
+  &__wrapper {
+    @include theme.wrap-section;
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__itemLeft {
+    flex: 0 35%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__menuBtn {
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  &__itemCenter {
+    flex: 0 33%;
+    text-align: center;
+    margin-left: auto;
+    @include theme.lg() {
+      margin-left: unset;
+      margin-right: auto;
+    }
+  }
+
+  &__title {
+    font-family: theme.$logo-font;
+    color: theme.$primary;
+    font-size: clamp(3rem, 5.2vw, 8rem);
+    transition: all 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: theme.$highlight;
+      color: theme.$highlight;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    max-height: calc(100vh - #{$headerSize});
+    overflow: scroll;
+    top: $headerSize;
+    z-index: 9998;
+    transition: all 0.75s cubic-bezier(0.86, 0, 0.07, 1);
+    background-color: theme.$secondary-dark;
+  
+    &--closed {
+      left: -100vw;
+      transition-delay: 1s;
+    }
+  
+    &--open {
+      left: 0;
+    }
+  }
+  
+  &__nav {
+    @include theme.wrap-section;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: theme.$primary;
+    max-height: calc(100vh - #{$headerSize});
+    overflow: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  &__navlink {
+    padding: 12px;
+    font-size: theme.$header4;
+    color: theme.$primary;
+    transition: all 0.5s cubic-bezier(1, 0.1, 0.1, 1);
+    cursor: pointer;
+    background-image: linear-gradient(
+      to bottom,
+      theme.$primary 0%,
+      theme.$primary 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 0 100%;
+    &:hover,
+    &:focus,
+    &:active {
+      background-size: 100% 100%;
+      color: theme.$secondary-dark;
+    }
+  }
+}
