@@ -1,0 +1,29 @@
+@use '../../styles/theme';
+
+.footer {
+    background-color: theme.$secondary-dark;
+    color: theme.$primary;
+  
+    &__wrapper {
+        @include theme.wrap-section;
+        padding-top: 48px;
+        padding-bottom: 48px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__itemInfo {
+        flex: 0 100%;
+      
+        @include theme.md() {
+          flex: 0 50%;
+        }
+    }
+  
+    &__itemCopyright {
+      flex: 0 100%;
+      font-family: theme.$header-font;
+      color: theme.$color-300;
+    }
+  }
+

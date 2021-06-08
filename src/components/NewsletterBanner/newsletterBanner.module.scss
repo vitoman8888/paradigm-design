@@ -1,0 +1,64 @@
+@use '../../styles/theme';
+
+.banner {
+  background-color: theme.$secondary-dark;
+  color: theme.$primary;
+
+  &__wrapper {
+    @include theme.wrap-section;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  &__heading {
+    color: theme.$highlight;
+    font-family: theme.$text-font;
+    font-size: theme.$header2;
+    font-weight: 600;
+  }
+
+  &__subtext {
+    color: theme.$primary;
+    font-family: theme.$header-font;
+    font-size: theme.$header4;
+    font-weight: 100;
+  }
+
+  &__form {
+    margin: 12px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__formInput {
+    font-family: theme.$text-font;
+    font-size: 20px;
+    padding: 18px;
+    border: none;
+    flex: 3 500px;
+    &:focus {
+      background: theme.$highlight;
+      color: theme.$secondary-dark;
+      outline: none;
+      transition-duration: 0.3s;
+    }
+  }
+
+  &__formBtn {
+    flex: 1 125px;
+    cursor: pointer;
+    background: theme.$color-300;
+    border: none;
+    color: theme.$secondary-dark;
+    font-family: theme.$header-font;
+    font-size: 18px;
+    padding: 16px 0;
+    text-align: center;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover {
+      background: theme.$highlight;
+    }
+  }
+}
