@@ -1,0 +1,58 @@
+@use '../../styles/theme';
+@use 'sass:color';
+
+.categoryCards {
+    &__grid {
+      @include theme.wrap-section;
+      padding: 48px 0;
+  
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-flow: dense;
+      grid-gap: 24px;
+  
+      @include theme.lg() {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    &__gridItem {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        min-height: 150px;
+        background-position: center;
+        background-size: cover;
+        transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        @include theme.lg() {
+            min-height: 300px;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+
+    &__gridItemInner {
+        position: relative;
+        height: 94%;
+        width: 94%;
+        margin: auto;
+        background-color: color.scale(theme.$secondary-dark, $alpha: -20%);
+        display: flex;
+        place-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: theme.$header-font;
+        font-size: theme.$header3;
+        font-weight: 700;
+        color: theme.$primary;
+        line-height: 1.2;
+    }
+}
