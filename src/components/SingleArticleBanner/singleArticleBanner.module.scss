@@ -1,0 +1,41 @@
+@use '../../styles/theme';
+
+.singleArticleBanner {
+  position: relative;
+  min-height: 500px;
+
+  &__imageWrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__details {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    color: theme.$primary;
+  }
+
+  &__detailsInner {
+    @include theme.wrap-section;
+    padding: 24px 0;
+  }
+
+  &__title {
+    max-width: 80ch;
+  }
+  &__excerpt {
+    max-width: 80ch;
+    font-size: theme.$header5;
+  }
+}

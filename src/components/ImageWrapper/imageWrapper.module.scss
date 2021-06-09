@@ -1,0 +1,19 @@
+@use '../../styles/theme';
+
+.image {
+  margin: 48px 0;
+
+  &__wrapper {
+    max-width: 100%;
+    min-height: 475px;
+    max-height: 800px;
+    position: relative;
+    text-align: center;
+  }
+
+  &__caption {
+    background-color: theme.$secondary;
+    color: theme.$primary;
+    padding: 8px;
+  }
+}
