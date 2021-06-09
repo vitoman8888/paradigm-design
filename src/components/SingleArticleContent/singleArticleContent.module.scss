@@ -1,0 +1,55 @@
+@use '../../styles/theme';
+
+.articleContent {
+  &__wrapper {
+    @include theme.wrap-section;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  &__side {
+    margin-top: 24px;
+    grid-column: 1 / -1;
+    font-family: theme.$header-font;
+
+    @include theme.lg() {
+      grid-column: 1 / span 3;
+    }
+  }
+
+  &__post {
+    grid-column: 1 / -1;
+    padding: 20px;
+    max-width: 80ch;
+
+    @include theme.lg() {
+      grid-column: 4 / -1;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    @include theme.lg() {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__author,
+  &__category {
+    text-align: left;
+    font-size: theme.$header5;
+    a {
+      text-decoration: underline;
+    }
+
+    span {
+      display: block;
+      color: theme.$primary;
+      background-color: theme.$secondary-dark;
+      padding: 10px;
+    }
+  }
+}

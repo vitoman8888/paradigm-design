@@ -1,0 +1,23 @@
+@use '../../styles/theme';
+@use 'sass:color';
+
+.categoryBanner {
+    &__wrapper {
+        min-height: 200px;
+        position: relative;
+        margin-bottom: 24px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            padding: 4px 24px;
+            background-color: color.scale(theme.$secondary-dark, $alpha: -20%);
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+            color: theme.$primary;
+        }
+    }
+}

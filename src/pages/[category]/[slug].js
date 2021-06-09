@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Footer from '../../components/Footer';
 import NewsletterBanner from '../../components/NewsletterBanner';
 import Header from '../../components/Header';
+import SingleArticleBanner from '../../components/SingleArticleBanner';
+import SingleArticleContent from '../../components/SingleArticleContent';
 
 import {
   getPostSlugs,
@@ -18,7 +20,16 @@ const Article = ({ postData, categoryList, relatedPosts }) => {
       </Head>
       <Header categoryList={categoryList} />
       <main>
-        <pre>{JSON.stringify(postData, null, 2)}</pre>
+        <SingleArticleBanner
+          featuredImage={postData.featuredImage}
+          title={postData.title}
+          excerpt={postData.excerpt}
+        />
+        <SingleArticleContent
+          author={postData.author.name}
+          content={postData.content}
+          category={postData.category}
+        />
         <NewsletterBanner />
       </main>
       <Footer />
