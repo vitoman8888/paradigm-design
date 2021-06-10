@@ -1,0 +1,73 @@
+@use '../../styles/theme';
+
+.relatedPosts {
+  &__wrapper {
+    @include theme.wrap-section;
+    min-height: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    min-height: 350px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    justify-content: center;
+    cursor: pointer;
+
+    a,
+    h4 {
+      max-width: 80%;
+      margin: 4px auto;
+      background-color: theme.$secondary;
+      color: theme.$primary;
+      padding: 8px 12px;
+      text-decoration: none;
+    }
+  }
+
+  &__next,
+  &__prev {
+    bottom: 5%;
+    position: absolute;
+    background-color: theme.$color-500;
+    color: theme.$primary;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 50px;
+    z-index: 2;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    @include theme.md {
+      top: calc(50% - 20px);
+    }
+
+    &:hover {
+      background-color: theme.$primary;
+      color: theme.$color-500;
+    }
+
+    span {
+      margin-top: -9px;
+    }
+  }
+
+  &__next {
+    right: 24px;
+  }
+  &__prev {
+    left: 24px;
+  }
+}

@@ -4,6 +4,7 @@ import NewsletterBanner from '../../components/NewsletterBanner';
 import Header from '../../components/Header';
 import CategoryBanner from '../../components/CategoryBanner';
 import CategoryArticles from '../../components/CategoryArticles';
+import { motion } from 'framer-motion';
 
 import {
   getSingleCategory,
@@ -11,9 +12,35 @@ import {
   getCategorySlugs,
 } from '../../utils/categories';
 
+const variants = {
+  initial: {
+    y: -10,
+    opacity: 0,
+  },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      delay: 0.35,
+      when: 'beforeChildren',
+    },
+  },
+  exit: {
+    y: 150,
+    opacity: 0,
+    transition: { duration: 0.35, when: 'afterChildren' },
+  },
+};
+
 const Category = ({ title, categoryData, categoryList }) => {
   return (
-    <div>
+    <motion.div
+        variants={variants}
+        initial='initial'
+        animate='enter'
+        exit='exit'
+    >
       <Head>
         <title>{title} - paradigm.</title>
       </Head>
@@ -24,7 +51,7 @@ const Category = ({ title, categoryData, categoryList }) => {
         <NewsletterBanner />
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
